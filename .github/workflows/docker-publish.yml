@@ -27,5 +27,5 @@ jobs:
             password: ${{ secrets.PASSWORD }}
         run: |
           echo $password | docker login ghcr.io --username $username --password-stdin
-          docker build --tag ${{ secrets.IMAGE_NAME }}
-          docker push ${{ secrets.IMAGE_NAME }}
+          docker build --tag ghcr.io/SahilBabbar12/github-cicd-actions:helloworld
+          docker push ghcr.io/SahilBabbar12/github-cicd-actions:helloworld
