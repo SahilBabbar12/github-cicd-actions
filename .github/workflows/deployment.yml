@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: demo
-          image:
+          image: ghcr.io/sahilbabbar12/githubcicdactions:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
