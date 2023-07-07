@@ -17,6 +17,13 @@ jobs:
         uses: sigstore/cosign-installer@f3c664df7af409cb4873aa5068053ba9d61a57b6 #v2.6.0
         with:
             cosign-release: 'v1.11.0'
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: Retrive saved jar
+        uses: actions/download-artifact@v2
+        with:
+          name: github-cicd-actions-0.0.1-SNAPSHOT.jar
+          path: target/
       - name: Setup Docker buildx
         uses: docker/setup-buildx-action@v2
       - name: Build and Push Image
@@ -24,7 +31,7 @@ jobs:
             username: ${{ secrets.USERNAME }}
             password: ${{ secrets.PASSWORD }}
         run: |
-          
-           docker build . --tag ghcr.io/SahilBabbar12/githubcicd:latest
-           docker push ghcr.io/SahilBabbar12/githubcicd:latest
+
+           docker build . --tag ghcr.io/SahilBabbar12/githubcicdactions:latest
+           docker push ghcr.io/SahilBabbar12/githubcicdactions:latest 
 
