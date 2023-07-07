@@ -27,6 +27,6 @@ jobs:
             password: ${{ secrets.PASSWORD }}
         run: |
 
-           docker build . --tag ghcr.io/sahilbabbar12/github-cicd-actions:latest
-           docker push ghcr.io/sahilbabbar12/github-cicd-actions:latest 
+           docker build . --tag ghcr.io/sahilbabbar12/githubcicdactions:latest
+           docker push ghcr.io/sahilbabbar12/githubcicdactions:latest 
 
