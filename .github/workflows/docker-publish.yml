@@ -30,6 +30,22 @@ jobs:
           docker login --username $username --password $password ghcr.io
           docker build . --tag ghcr.io/sahilbabbar12/githubcicdactions:latest
           docker push ghcr.io/sahilbabbar12/githubcicdactions:latest
+      - name: Deploy to GKE
+        uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+        env:
+          PROJECT_ID: ${{ secrets.PROJECT_ID }}
+          APPLICATION_CREDENTIALS: ${{ secrets.GCLOUD_AUTH }}
+          CLUSTER_NAME: ${{ secrets.CLUSTER_NAME }}
+          ZONE_NAME: asia-southeast1-a
+
+      - name: Configure kubectl
+        run: |
+          gcloud config set project $PROJECT_ID
+          gcloud config set compute/zone $ZONE_NAME
+          gcloud container cluster get-credentials $CLUSTER_NAME
+      - name: Apply deployment
+        run: |
+          kubectl apply -f deployment.yml
 
 #        run:
 ##          echo $password | docker login ghcr.io --username $username --password-stdin
