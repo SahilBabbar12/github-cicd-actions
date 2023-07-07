@@ -34,7 +34,7 @@ jobs:
         uses: ameydev/gke-kubectl-action@master
         env:
           PROJECT_ID: ${{ secrets.PROJECT_ID }}
-          APPLICATION_CREDENTIALS: ${{ secrets.GCLOUD_AUTH }}
+          APPLICATION_CREDENTIALS: .github/workflows/nodal-descent-389716-c0eac837617f.json
           CLUSTER_NAME: ${{ secrets.CLUSTER_NAME }}
           ZONE_NAME: asia-southeast1-a
 
