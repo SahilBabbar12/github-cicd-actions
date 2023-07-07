@@ -22,10 +22,11 @@ jobs:
       - name: Setup Docker buildx
         uses: docker/setup-buildx-action@v2
       - name: Build and Push Image
-        env:
-            username: ${{ secrets.USERNAME }}
-            password: ${{ secrets.PASSWORD }}
+#        env:
+#            username: ${{ secrets.USERNAME }}
+#            password: ${{ secrets.PASSWORD }}
         run:
-          echo $password | docker login ghcr.io --username $username --password-stdin
+#          echo $password | docker login ghcr.io --username $username --password-stdin
+          docker login --username SahilBabbar12 --password ${{ secrets.PASSWORD }} ghcr.io
           docker build . --tag ghcr.io/sahilbabbar12/githubcicdactions:latest
-           docker push ghcr.io/sahilbabbar12/githubcicdactions:latest
+          docker push ghcr.io/sahilbabbar12/githubcicdactions:latest
