@@ -36,7 +36,7 @@ jobs:
           PROJECT_ID: ${{ secrets.PROJECT_ID }}
           APPLICATION_CREDENTIALS: ${{ secrets.GCLOUD_AUTH }}
           CLUSTER_NAME: ${{ secrets.CLUSTER_NAME }}
-          ZONE_NAME: asia-southeast1-a
+          ZONE_NAME: us-central1-c
 
       - name: Configure kubectl
         run: |
@@ -46,9 +46,3 @@ jobs:
       - name: Apply deployment
         run: |
           kubectl apply -f deployment.yml
-
-#        run:
-##          echo $password | docker login ghcr.io --username $username --password-stdin
-#          docker login --username SahilBabbar12 --password ${{ secrets.PASSWORD }} ghcr.io
-#          docker build . --tag ghcr.io/sahilbabbar12/githubcicdactions:latest
-#          docker push ghcr.io/sahilbabbar12/githubcicdactions:latest
