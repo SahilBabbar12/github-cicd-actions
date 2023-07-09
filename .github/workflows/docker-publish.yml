@@ -38,5 +38,5 @@ jobs:
           CLUSTER_NAME: ${{ secrets.CLUSTER_NAME }}
           ZONE_NAME: us-central1-c
         with:
-          args:  kubectl apply -f K8s/
+          args: apply -f K8s/
 
