@@ -66,4 +66,4 @@ jobs:
           CLUSTER_NAME: ${{ secrets.CLUSTER_NAME }}
           ZONE_NAME: us-central1-c
         with:
-          args: apply -f k8s/deploy_service.yml
+          args: apply -f deploy_service.yml
