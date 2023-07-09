@@ -13,7 +13,7 @@ spec:
         app: demo-app
     spec:
       containers:
-        - name: demo
+        - name: demo-app
           image: ghcr.io/sahilbabbar12/githubcicdactions:latest
           imagePullPolicy: Always
           ports:
