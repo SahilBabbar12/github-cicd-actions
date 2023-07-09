@@ -20,6 +20,16 @@ spec:
             - containerPort: 8080
       imagePullSecrets:
         - name: pullsecret
-
-
-
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: demo
+spec:
+  selector:
+    app: demo
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
+  type: LoadBalancer

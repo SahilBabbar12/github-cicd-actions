@@ -37,12 +37,6 @@ jobs:
           APPLICATION_CREDENTIALS: ${{ secrets.GCLOUD_AUTH }}
           CLUSTER_NAME: ${{ secrets.CLUSTER_NAME }}
           ZONE_NAME: us-central1-c
+        with:
+          args:  kubectl apply -f K8s/
 
-      - name: Configure kubectl
-        run: |
-          gcloud config set project $PROJECT_ID
-          gcloud config set compute/zone $ZONE_NAME
-          gcloud container cluster get-credentials $CLUSTER_NAME
-      - name: Apply deployment
-        run: |
-          kubectl apply -f deployment.yml
