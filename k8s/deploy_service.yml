@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind : Deployment
 metadata:
-  name: demo-app
+  name: demo-new
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: demo-app
+      app: demo-new
   template:
     metadata:
       labels:
-        app: demo-app
+        app: demo-new
     spec:
       containers:
-        - name: demo-app
+        - name: demo-new
           image: ghcr.io/sahilbabbar12/githubcicdactions:latest
           imagePullPolicy: Always
           ports:
@@ -24,10 +24,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: demo-app
+  name: demo-new
 spec:
   selector:
-    app: demo-app
+    app: demo-new
   ports:
     - protocol: TCP
       port: 80
